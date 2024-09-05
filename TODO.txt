@@ -1,0 +1,6 @@
+﻿Build out the rest of the models based on the Northwind database
+
+Upload initial to Github. 
+
+Build out some sample pages! 
+
