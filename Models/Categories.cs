@@ -10,7 +10,7 @@ namespace JakeDemoSite1.Models
 		[Key]
 		public int CategoryID { get; set; }
 		[Required]
-		public string CategoryName { get; set; }
+		public string? CategoryName { get; set; }
 		public string? Description { get; set; }
 		[NotMapped]
 		public Blob? Picture { get; set; }

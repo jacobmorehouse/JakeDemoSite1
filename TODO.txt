@@ -1,4 +1,8 @@
-﻿Products: 'Discontinued' should be a bool. Need to display and use it that way.
+﻿On the front page of this site, put a link to my github repo that shows the code. 
+
+Host this somewhere
+
+On jacobmorehouse.com put a link to where I am hosting this demo site. 
 
 Display: 
 -On products page, show all products that are below and near their reorder level so that someone knows that they need to reorder them? 
