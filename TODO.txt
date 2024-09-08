@@ -1,6 +1,10 @@
-﻿Build out the rest of the models based on the Northwind database
+﻿Products: 'Discontinued' should be a bool. Need to display and use it that way.
 
-Upload initial to Github. 
+Display: 
+-On products page, show all products that are below and near their reorder level so that someone knows that they need to reorder them? 
+-show products by category
+-show products by supplier
+-show orders per Employee (maybe also over time)
 
-Build out some sample pages! 
 
+Finish building all CRUDs.

@@ -21,5 +21,14 @@ namespace JakeDemoSite1.Models
 		public int UnitsOnOrder { get; set; }
 		public int ReorderLevel { get; set; }
 		public string? Discontinued { get; set; }
+		public bool DiscontinuedBool {
+			get {
+				if (this.Discontinued == "1") { 
+					return true;
+				} else {
+					return false;
+				} ;
+			}
+		}
 	}
 }

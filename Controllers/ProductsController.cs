@@ -49,7 +49,7 @@ namespace JakeDemoSite1.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryID");
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryName");
             ViewData["SupplierID"] = new SelectList(_context.Suppliers, "SupplierID", "CompanyName");
             return View();
         }
@@ -67,7 +67,7 @@ namespace JakeDemoSite1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryID", products.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryName", products.CategoryID);
             ViewData["SupplierID"] = new SelectList(_context.Suppliers, "SupplierID", "CompanyName", products.SupplierID);
             return View(products);
         }
@@ -85,7 +85,7 @@ namespace JakeDemoSite1.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryID", products.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "CategoryID", "CategoryName", products.CategoryID);
             ViewData["SupplierID"] = new SelectList(_context.Suppliers, "SupplierID", "CompanyName", products.SupplierID);
             return View(products);
         }
@@ -95,12 +95,15 @@ namespace JakeDemoSite1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Products products)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Products products, bool DiscontinuedCheckbox)
         {
             if (id != products.ProductID)
             {
                 return NotFound();
             }
+
+            if (DiscontinuedCheckbox) { products.Discontinued = "1"; } else { products.Discontinued = "0"; }
+
 
             if (ModelState.IsValid)
             {
