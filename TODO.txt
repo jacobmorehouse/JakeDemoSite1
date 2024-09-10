@@ -1,13 +1,22 @@
 ﻿On the front page of this site, put a link to my github repo that shows the code. 
 
-Host this somewhere
+
+
+Host this somewhere?
 
 On jacobmorehouse.com put a link to where I am hosting this demo site. 
 
-Display: 
+Eployees UI:
+-birthdays and hire dates should emit only a date
+-lay out the index differntly, maybe a card style view? 
+-org chart?
+
+Products UI: 
 -On products page, show all products that are below and near their reorder level so that someone knows that they need to reorder them? 
 -show products by category
 -show products by supplier
+
+Orders UI:
 -show orders per Employee (maybe also over time)
 
 

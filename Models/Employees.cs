@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Numerics;
 using System.Reflection.Metadata;
+using System.Runtime.Serialization;
 
 namespace JakeDemoSite1.Models
 {
@@ -14,11 +15,23 @@ namespace JakeDemoSite1.Models
 		public string? LastName  { get; set; }
 		[DisplayName("First Name")]
 		public string? FirstName { get; set; }
+		[DisplayName("Name")]
+		public string? LastCommaFirst
+		{
+			get
+			{
+				return this.LastName + ", " + this.FirstName;
+			}
+		}
+
 		public string? Title { get; set; }
+		[DisplayName("Prefix")]
 		public string? TitleOfCourtesy { get; set; }
 		[DisplayName("Birthday")]
+		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
 		public DateTime BirthDate { get; set; }
 		[DisplayName("Hire Date")]
+		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
 		public DateTime HireDate { get; set; }
 		public string? Address { get; set; }
 		public string? City { get; set; }
@@ -34,7 +47,7 @@ namespace JakeDemoSite1.Models
 		public string? Notes { get; set; }
 		[Column("ReportsTo")]
 		public int? ReportsToEmployeeID { get; set; } //TODO can I make this into an Employee not just an int?
+		[DisplayName("Reports To")]
 		public Employees ReportsToEmployee { get; set; }
-		public int? PhotoPath { get; set; }
 	}
 }
