@@ -11,7 +11,7 @@ namespace JakeDemoSite1.Models
 		public string CustomerID { get; set; }
 		[Required]
         [DisplayName("Customer Company Name")]
-        public string CustomerName { get; set; }
+        public string? CustomerName { get; set; }
         [DisplayName("Contact Name")]
         public string? ContactName { get; set; }
         [DisplayName("Contact Title")]
