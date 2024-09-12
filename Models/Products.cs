@@ -9,8 +9,8 @@ namespace JakeDemoSite1.Models
 		[Key]
 		public int ProductID { get; set; }
 		[Required]
-        [DisplayName("Product Name")]
-        public string ProductName { get; set; } = string.Empty;
+		[DisplayName("Product Name")]
+		public string ProductName { get; set; } = string.Empty;
 		[ForeignKey("Supplier")]
 		[DisplayName("Supplier")]
 		public int SupplierID { get; set; }
@@ -19,16 +19,16 @@ namespace JakeDemoSite1.Models
 		[DisplayName("Category")]
 		public int CategoryID { get; set; }
 		public Categories? Category { get; set; }
-        [DisplayName("Quantity per Unit")]
-        public string? QuantityPerUnit { get; set; }
-        [DisplayName("Unit Price")]
-        public decimal UnitPrice { get; set; }
-        [DisplayName("Units in Stock")]
-        public int UnitsInStock { get; set; }
-        [DisplayName("Units on Order")]
-        public int UnitsOnOrder { get; set; }
-        [DisplayName("Reorder Level")]
-        public int ReorderLevel { get; set; }
+		[DisplayName("Quantity per Unit")]
+		public string? QuantityPerUnit { get; set; }
+		[DisplayName("Unit Price")]
+		public decimal UnitPrice { get; set; }
+		[DisplayName("Units in Stock")]
+		public int UnitsInStock { get; set; }
+		[DisplayName("Units on Order")]
+		public int UnitsOnOrder { get; set; }
+		[DisplayName("Reorder Level")]
+		public int ReorderLevel { get; set; }
 		public string? Discontinued { get; set; }
 		public bool DiscontinuedBool {
 			get {

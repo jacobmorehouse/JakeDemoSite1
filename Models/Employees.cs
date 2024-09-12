@@ -44,8 +44,10 @@ namespace JakeDemoSite1.Models
 		public string? Extension { get; set; }
 		[NotMapped]
 		public Blob? Photo { get; set; }
+		[DataType(DataType.MultilineText)]
 		public string? Notes { get; set; }
 		[Column("ReportsTo")]
+		[ForeignKey("Employer")]
 		public int? ReportsToEmployeeID { get; set; } //TODO can I make this into an Employee not just an int?
 		[DisplayName("Reports To")]
 		public Employees ReportsToEmployee { get; set; }
