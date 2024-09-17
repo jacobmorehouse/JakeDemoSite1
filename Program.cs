@@ -7,45 +7,50 @@ using JakeDemoSite1.Data;
 
 namespace JakeDemoSite1
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+	public class Program
+	{
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
+		public static void Main(string[] args)
+		{
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("MyDatabase")));
-            var app = builder.Build();
+			var builder = WebApplication.CreateBuilder(args);
 
-            using (var scope = app.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-            }
+			// Add services to the container.
+			builder.Services.AddControllersWithViews();
 
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+			// Add services to the container.
+			builder.Services.AddControllersWithViews();
+			builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(builder.Configuration
+				.GetConnectionString("MyDatabase"))
+				.EnableDetailedErrors()
+			);
+			var app = builder.Build();
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+			using (var scope = app.Services.CreateScope())
+			{
+				var services = scope.ServiceProvider;
+			}
 
-            app.UseRouting();
+			// Configure the HTTP request pipeline.
+			if (!app.Environment.IsDevelopment())
+			{
+				app.UseExceptionHandler("/Home/Error");
+				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+				app.UseHsts();
+			}
 
-            app.UseAuthorization();
+			app.UseHttpsRedirection();
+			app.UseStaticFiles();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+			app.UseRouting();
 
-            app.Run();
-        }
-    }
+			app.UseAuthorization();
+
+			app.MapControllerRoute(
+				name: "default",
+				pattern: "{controller=Home}/{action=Index}/{id?}");
+
+			app.Run();
+		}
+	}
 }

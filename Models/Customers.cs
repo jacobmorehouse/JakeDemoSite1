@@ -9,23 +9,17 @@ namespace JakeDemoSite1.Models
 	{
 		[Key]
 		public string CustomerID { get; set; }
-		[Required]
 		[DisplayName("Customer Company Name")]
-		public string? CustomerName { get; set; }
+		public string? CompanyName { get; set; }
 		[DisplayName("Contact Name")]
 		public string? ContactName { get; set; }
 		[DisplayName("Contact Title")]
 		public string? ContactTitle { get; set; }
-		[Required]
 		public string? Address { get; set; }
-		[Required]
 		public string? City { get; set; }
-		[Required]
 		public string? Region { get; set; }
-		[Required]
 		[DisplayName("Postal Code")]
-		public string? PortalCode { get; set; }
-		[Required]
+		public string? PostalCode { get; set; }
 		public string? Country { get; set; }
 		public string? Phone { get; set; }
 		public string? Fax { get; set; }

@@ -57,8 +57,14 @@ namespace JakeDemoSite1.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create([Bind("EmployeeID,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Notes,ReportsToEmployeeID,PhotoPath")] Employees employees)
+		public async Task<IActionResult> Create([Bind("EmployeeID,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Notes,ReportsToEmployeeID,PhotoPath")] Employees employees, int ReportsToEmployeeID)
 		{
+			employees.ReportsToEmployee = (from e in _context.Employees
+									   where e.EmployeeID == ReportsToEmployeeID
+									   select e).First();
+			employees.ReportsToEmployeeID = ReportsToEmployeeID;
+
+
 			if (ModelState.IsValid)
 			{
 				_context.Add(employees);

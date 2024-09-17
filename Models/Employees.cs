@@ -28,10 +28,12 @@ namespace JakeDemoSite1.Models
 		[DisplayName("Prefix")]
 		public string? TitleOfCourtesy { get; set; }
 		[DisplayName("Birthday")]
-		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+		[DataType(DataType.Date)]
+		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime BirthDate { get; set; }
 		[DisplayName("Hire Date")]
-		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+		[DataType(DataType.Date)]
+		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime HireDate { get; set; }
 		public string? Address { get; set; }
 		public string? City { get; set; }
@@ -42,14 +44,11 @@ namespace JakeDemoSite1.Models
 		[DisplayName("Home Phone")]
 		public string? HomePhone { get; set; }
 		public string? Extension { get; set; }
-		[NotMapped]
-		public Blob? Photo { get; set; }
-		[DataType(DataType.MultilineText)]
 		public string? Notes { get; set; }
 		[Column("ReportsTo")]
 		[ForeignKey("Employer")]
-		public int? ReportsToEmployeeID { get; set; } //TODO can I make this into an Employee not just an int?
+		public int? ReportsToEmployeeID { get; set; }
 		[DisplayName("Reports To")]
-		public Employees ReportsToEmployee { get; set; }
+		public Employees? ReportsToEmployee { get; set; }
 	}
 }

@@ -1,14 +1,9 @@
-﻿On the front page of this site, put a link to my github repo that shows the code. 
-
-
-
+﻿
 Host this somewhere?
-
-On jacobmorehouse.com put a link to where I am hosting this demo site. 
+-On the front page of this site, put a link to my github repo that shows the code. 
+-On jacobmorehouse.com put a link to where I am hosting this demo site. 
 
 Eployees UI:
--birthdays and hire dates should emit only a date
--lay out the index differntly, maybe a card style view? 
 -org chart?
 
 Products UI: 
