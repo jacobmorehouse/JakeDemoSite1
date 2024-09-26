@@ -14,5 +14,3 @@ Products UI:
 Orders UI:
 -show orders per Employee (maybe also over time)
 
-
-Finish building all CRUDs.
