@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+
+    Employees firstEmployee = ViewBag.firstEmployee;
+    List<string> nEmployees = ViewBag.nEmployees;
+}
+
+<h1>Index</h1>
+
+<p>FIrst employee: @firstEmployee.FirstName</p>
+
+<p>The Employess with an N in first name:</p>
+@{
+    foreach (var ne in nEmployees)
+    {
+        <p>@ne</p>
+    }
+}
