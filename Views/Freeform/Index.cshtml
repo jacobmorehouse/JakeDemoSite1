@@ -1,9 +1,24 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@* The use of functions seems pretty hacky, but interesting to use as an experiment. It lets you declare class inside the Razor template (among other shenanigans)
+I didn't end up using it but its amusing that it is possible and I wanted to leave it documented for myself.
 
-    Employees firstEmployee = ViewBag.firstEmployee;
-    List<string> nEmployees = ViewBag.nEmployees;
+*@
+@* @functions{
+	public class FirstLast
+	{
+		public string firstname = ""; 
+		public string lastname = "";
+	}
+} *@
+
+@{
+	ViewData["Title"] = "Index";
+
+	Employees firstEmployee = ViewBag.firstEmployee;
+	List<string> nEmployees = ViewBag.nEmployees;
+	dynamic listFirstlast = ViewBag.listFirstlast; //We can reference the objects without defining their class by using dynamic (or var) which is easiest, but you lose intellisense and type checking. 
+	// ^Hasty, but you can then use dyanmic on the back and front, handy when you dont want to create a class for something!
+	
+	List<JakeDemoSite1.Controllers.FreeformController.FirstLast> listFirstLast2 = ViewBag.listFirstLast; //we can use the class we made in the controller, just have to namespace it out.
 }
 
 <h1>Index</h1>
@@ -12,8 +27,19 @@
 
 <p>The Employess with an N in first name:</p>
 @{
-    foreach (var ne in nEmployees)
-    {
-        <p>@ne</p>
-    }
+	foreach (string ne in nEmployees)
+	{
+		<p>@ne</p>
+	}
 }
+<br />
+
+<p>Alright now loop listFirstLast: </p>
+@{
+	foreach (var item in listFirstlast)
+	{
+		<p>@item.firstname @item.lastname</p>
+	}
+	
+}
+<p>PageModel?: </p>

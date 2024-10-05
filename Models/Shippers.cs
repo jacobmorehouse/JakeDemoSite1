@@ -9,8 +9,8 @@ namespace JakeDemoSite1.Models
 		[Key]
 		public int ShipperID { get; set; }
 		[Required]
-        [DisplayName("Company Name")]
-        public string? CompanyName { get; set; }
+		[DisplayName("Company Name")]
+		public string? CompanyName { get; set; }
 		public string? Phone { get; set; }
 	}
 }

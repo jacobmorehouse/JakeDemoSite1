@@ -9,7 +9,7 @@ namespace JakeDemoSite1.Models
 		[Key]
 		public int RegionID { get; set; }
 		[Required]
-        [DisplayName("Region Description")]
-        public string? RegionDescription { get; set; }
+		[DisplayName("Region Description")]
+		public string? RegionDescription { get; set; }
 	}
 }
